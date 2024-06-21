@@ -1,0 +1,32 @@
+import math
+
+# Función para convertir grados a radianes
+def degrees_to_radians(degrees):
+    return degrees * math.pi / 180
+
+# Función para convertir radianes a grados
+def radians_to_degrees(radians):
+    return radians * 180 / math.pi
+
+# Solicitar al usuario los valores de n1, n2 y Θ2 en grados
+n1 = float(input("Ingrese el valor de n1: "))
+n2 = float(input("Ingrese el valor de n2: "))
+theta_2_degrees = float(input("Ingrese el valor de Θ2 en grados: "))
+
+# Convertir Θ2 a radianes
+theta_2_radians = degrees_to_radians(theta_2_degrees)
+
+# Calcular sin(Θc)
+sin_theta_c = (math.sin(theta_2_radians) * n2) / n1
+
+# Asegurarse de que el valor esté en el rango [-1, 1] para poder aplicar asin
+sin_theta_c = max(-1, min(1, sin_theta_c))
+
+# Calcular Θc en radianes
+theta_c_radians = math.asin(sin_theta_c)
+
+# Convertir Θc a grados
+theta_c_degrees = radians_to_degrees(theta_c_radians)
+
+# Mostrar el resultado
+print(f"El valor del ángulo Θc en grados es: {theta_c_degrees:.2f}")
